@@ -118,9 +118,9 @@
         content: '';
         position: absolute;
         left: -12%;
-        top: 0;
+        top: -80px;
         width: 0px;
-        height: 150%;
+        height: 180%;
         border: 1px dashed #fff;
         z-index: 1;
     }
