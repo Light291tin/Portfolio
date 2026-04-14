@@ -70,12 +70,17 @@ a#syntheseE4 {
     color: #fff;
     margin: 0 20px;
     float: left;
-    transition: all 0.3s linear;
+    transition: transform 0.3s linear, color 0.3s linear;
 }
 
 .acc-btn.is-open:before {
     transform: rotate(90deg);
     color: var(--lBlue);
+}
+
+.acc-btn:hover:before {
+    transform: rotate(90deg);
+}
 }
 
 .acc-btn.is-open {
