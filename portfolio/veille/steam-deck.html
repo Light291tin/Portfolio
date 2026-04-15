@@ -95,6 +95,15 @@
             </article>
         </section>
 
+        <section class="watch-section full watch-slides" id="diaporama">
+            <h2>Diaporama du document Steam Deck</h2>
+            <p>Le document est affiche directement ci-dessous.</p>
+
+            <div class="slides-stage" id="slidesStage">
+                <iframe id="pdfSlideFrame" title="Diaporama PDF Steam Deck" loading="lazy"></iframe>
+            </div>
+        </section>
+
         <section class="watch-source-list" id="sources">
             <h2>Sources a suivre</h2>
             <ul>
@@ -110,5 +119,26 @@
             <p>Chitoroaga Stefan <img class="paws" src="../assets/icons/paws.png" alt="Icone de pattes de chat"></p>
         </div>
     </footer>
+
+    <script>
+        (function () {
+            function initPdfSlideshow() {
+                var pdfPath = "../assets/docs/Steam-deck.pdf";
+                var frame = document.getElementById("pdfSlideFrame");
+
+                if (!frame) {
+                    return;
+                }
+
+                frame.src = pdfPath + "#page=1&view=FitH&toolbar=0&navpanes=0";
+            }
+
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", initPdfSlideshow);
+            } else {
+                initPdfSlideshow();
+            }
+        })();
+    </script>
 </body>
 </html>
