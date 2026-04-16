@@ -1,0 +1,411 @@
+/* =========================================
+   POLICES
+   ========================================= */
+
+/* A. Google Fonts (Montserrat + Playfair en secours) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+/* @font-face {
+  font-family: 'The Seasons';
+  src: url('/fonts/TheSeasons-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Moon Time';
+  src: url('/fonts/MoonTime-Regular.ttf') format('truetype');
+  font-weight: normal;
+} 
+*/
+
+/* =========================================
+VARIABLES GLOBALES (:root)
+========================================= */
+:root {
+  /* -- Couleurs -- */
+  --color-text: #1a1a1a;        
+  --color-primary: #117384;     
+  --color-bg: #ffffff;          
+  --color-light-grey: #f4f4f4;
+
+  /* -- Polices -- */
+  --font-main: 'Bebas Neue', sans-serif;
+  
+  /* Si "The Seasons" n'est pas chargée, on utilise Playfair Display par défaut */
+  --font-title: 'The Seasons', 'Playfair Display', serif; 
+  
+  /* Si "Moon Time" n'est pas chargée, on utilise une cursive par défaut */
+  --font-script: 'Moon Time', cursive; 
+}
+
+/* =========================================
+BASE 
+========================================= */
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 0; 
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  display: block; 
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* =========================================
+TYPOGRAPHIE
+========================================= */
+
+/* Titres en Bleu Canard */
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+  font-family: var(--font-title);
+  color: var(--color-primary);
+  font-weight: 400; 
+  margin-bottom: 1rem;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit; /* Noir ou blanc selon le fond */
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  color: inherit;
+  opacity: 0.7;
+}
+
+/* Texte en majuscules*/
+.text-uppercase {
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Texte en Script (utilisé pour les accents) */
+.script-font {
+  font-family: var(--font-script);
+  font-size: 2rem;
+}
+
+/* =========================================
+COMPOSANTS
+========================================= */
+
+/* Boutons Carrés */
+.btn {
+  border-radius: 0 !important;
+  font-family: var(--font-main);
+  letter-spacing: 1px;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+/* Bouton Sombre par défaut */
+.btn-dark {
+  background-color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+/* Inputs Carrés */
+.form-control {
+  border-radius: 0 !important;
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: var(--color-primary);
+}
+
+/* =========================================
+UTILITAIRES VISU
+========================================= */
+
+
+/* Navbar : Transition douce si on change de couleur */
+.navbar {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* =========================================
+PAGE PRODUIT 
+========================================= */
+
+
+/* A voir si on utilise ou pas tout dépends du contenue */
+.custom-carousel .carousel-indicators {
+  margin-bottom: 1.5rem;
+}
+
+.custom-carousel .carousel-indicators button {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50%;
+  background-color: #000;
+  opacity: 0.2;
+  border: none;
+  margin: 0 5px;
+}
+
+.custom-carousel .carousel-indicators button.active {
+  opacity: 0.8;
+  transform: scale(1.2);
+}
+
+
+/* =========================================
+BOUTON PANIER (Page Produit)
+========================================= */
+
+.shop-btn {
+  --btn-width: 220px;
+  --btn-height: 55px;
+  --btn-bg: #1a1a1a;      
+  --btn-hover-bg: #117384; 
+  --tooltip-w: 100px;
+  
+  width: var(--btn-width);
+  height: var(--btn-height);
+  background: var(--btn-bg);
+  position: relative;
+  text-align: center;
+  border-radius: 0; 
+  font-family: var(--font-main);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  color: white;
+}
+
+/* Conteneur pour le texte et l'icône */
+.shop-btn-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Texte "Ajouter au panier" */
+.shop-btn-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: top 0.4s ease;
+}
+
+/* Icône Panier (cachée en bas au début) */
+.shop-btn-icon {
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: top 0.4s ease;
+}
+
+/* --- ANIMATIONS AU SURVOL --- */
+
+.shop-btn:hover {
+  background: var(--btn-hover-bg);
+}
+
+.shop-btn:hover .shop-btn-text {
+  top: -100%; /* Le texte part vers le haut */
+}
+
+.shop-btn:hover .shop-btn-icon {
+  top: 0; /* L'icône arrive au centre */
+}
+
+/* =========================================
+FAVORIS BOOKMARK
+========================================= */
+
+.ui-bookmark {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.ui-bookmark input {
+  display: none;
+}
+
+.ui-bookmark .bookmark {
+  width: 20px; 
+  height: 20px;
+  fill: #1a1a1a;
+  transition: fill 0.2s;
+}
+
+
+.ui-bookmark:hover .bookmark {
+  fill: #616161;
+}
+
+.ui-bookmark input:checked + .bookmark {
+  fill: #117384; 
+  animation: bookmark 0.3s forwards; 
+}
+
+/* Animation rebond */
+@keyframes bookmark {
+  50% {
+    -webkit-transform: scaleY(0.6);
+    transform: scaleY(0.6);
+  }
+
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+
+
+/* =========================================
+FOOTER LUXE (FIN ET ÉLÉGANT)
+========================================= */
+
+
+.footer-link {
+  color: #1a1a1a;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.7rem; 
+  letter-spacing: 1px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #117384; /* Devient gris au survol */
+}
+
+/* Input Newsletter (Style Ligne seule) */
+.footer-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #e0e0e0; /* Ligne grise très fine */
+  border-radius: 0;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: #1a1a1a;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.footer-input:focus {
+  border-bottom-color: #1a1a1a; 
+  box-shadow: none;
+}
+
+.footer-input::placeholder {
+  color: #999;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+
+.footer-submit-btn {
+  position: absolute;
+  right: 0;
+  bottom: 8px; 
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-submit-btn:hover {
+  color: #1a1a1a;
+}
+
+/* =========================================
+NAV BAR 
+========================================= */
+
+.mega-menu-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-top: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding: 1rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* Quand le menu est actif */
+.mega-menu-active .mega-menu-container {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Titres des colonnes dans le menu */
+.mega-menu-title {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+  display: block;
+}
+
+/* Liens dans le menu */
+.mega-menu-link {
+  display: block;
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mega-menu-link:hover {
+  color: var(--color-primary); 
+}
