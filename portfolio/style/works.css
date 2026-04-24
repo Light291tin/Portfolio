@@ -17,6 +17,10 @@
     text-decoration: underline;
 }
 
+.section-school {
+    margin-top: 40px;
+}
+
 .work p a, .work p a:visited {
     color: var(--lBlue);
 }

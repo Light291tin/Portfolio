@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex Nova</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <div class="page-shell">
+        <main class="app-layout">
+            <section class="catalog-panel">
+                <div class="toolbar">
+                    <label class="search-box" for="search-input">
+                        <span>Recherche</span>
+                        <input id="search-input" type="search" placeholder="Nom ou numero" autocomplete="off">
+                    </label>
+
+                    <label class="type-box" for="type-filter">
+                        <span>Type</span>
+                        <select id="type-filter">
+                            <option value="all">Tous les types</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="catalog-meta">
+                    <p id="results-count">Chargement du catalogue...</p>
+                    <button id="reset-filters" class="ghost-button" type="button">Reinitialiser</button>
+                </div>
+
+                <div id="pokedex" class="pokedex-grid" aria-live="polite"></div>
+            </section>
+
+            <aside class="detail-panel" id="detail-panel">
+                <div class="detail-empty" id="detail-empty">
+                    <p class="detail-kicker">Analyse en attente</p>
+                    <h2>Selectionne un Pokemon</h2>
+                    <p>
+                        Ouvre une fiche pour afficher sa description, ses stats, ses capacites defensives
+                        et sa chaine d'evolution.
+                    </p>
+                </div>
+
+                <div class="detail-card hidden" id="detail-card">
+                    <div class="detail-header">
+                        <div>
+                            <p class="detail-kicker" id="detail-id"></p>
+                            <h2 id="detail-name"></h2>
+                            <p class="detail-subtitle" id="detail-genus"></p>
+                        </div>
+                        <div class="detail-badges" id="detail-types"></div>
+                    </div>
+
+                    <div class="detail-visual">
+                        <img id="detail-image" alt="Illustration du Pokemon selectionne">
+                    </div>
+
+                    <p class="detail-description" id="detail-description"></p>
+
+                    <section>
+                        <div class="section-title-row">
+                            <h3>Statistiques</h3>
+                            <span id="detail-total"></span>
+                        </div>
+                        <div id="detail-stats" class="stat-bars"></div>
+                    </section>
+
+                    <section>
+                        <h3>Resistances et faiblesses</h3>
+                        <div id="detail-matchups" class="matchups"></div>
+                    </section>
+
+                    <section>
+                        <h3>Evolution</h3>
+                        <div id="detail-evolution" class="evolution-chain"></div>
+                    </section>
+                </div>
+            </aside>
+        </main>
+    </div>
+</body>
+</html>
